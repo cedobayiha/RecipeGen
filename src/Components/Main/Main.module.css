@@ -1,14 +1,14 @@
-.App {
+.Main {
   text-align: center;
-  /* width: 90%;
+  width: 90%;
   margin: 0 auto;
   box-sizing: border-box;
-  padding: 20px; */
+  padding: 20px;
   
 }
 
 
-/* .Form{
+.Form{
   text-align: center;
   margin: 25px auto;
   box-sizing: border-box;
@@ -20,5 +20,4 @@ Btn{
 
 Btn:disabled{
   cursor: not-allowed;
-} */
-
+}
