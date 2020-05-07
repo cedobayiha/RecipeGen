@@ -3,16 +3,20 @@ import Recepe from '../Recepe/Recepe';
 import queryString from 'query-string';
 
 class List extends Component {
-
-
-
   state = {
-    recepes: []
+    recepes: [],
+    query: queryString.parse(window.location.search).q,
+    newQuery: null
   }
 
+
+  setStr = (newQuery) => {
+    this.setState({ newQuery: newQuery })
+  }
+
+
   componentDidMount() {
-    const parsed = queryString.parse(window.location.search);
-    this.getData(parsed.q)
+    this.getData(this.state.query)
   }
 
   getData = async (parser) => {
@@ -22,9 +26,24 @@ class List extends Component {
 
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.query !== this.props.query) {
+      this.setState({ query: this.props.query })
+      this.getData(this.props.query)
+    }
+
+    if (prevState.newQuery !== this.state.newQuery) {
+      this.getData(this.state.newQuery)
+    }
+
+  }
+
   render() {
-
-
+    // let str = queryString.parse(window.location.search).q;
+    // if (this.state.query !== str) {
+    //   this.setStr(str)
+    // }
+    // console.log(str)
     return (
       <div>
         {

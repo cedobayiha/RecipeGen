@@ -17,28 +17,19 @@ class Main extends Component {
     this.setState({ search: e.target.value })
   }
 
-  // getData = async () => {
 
-  //   const res = await fetch(`https://api.edamam.com/search?q=${this.state.query}&app_id=${process.env.REACT_APP_ID}&app_key=${process.env.REACT_APP_SECRET_KEY}`)
-  //   const info = await res.json();
-  //   this.setState({ recepes: info.hits })
-  //   console.log(info.hits)
-
-  // }
 
   submitHandler = (e) => {
     e.preventDefault();
+
     let newSearch = this.state.search.trim();
     if (newSearch.length > 1) {
-
       this.setState({ query: newSearch, search: '' })
+      // this.props.history.push('/search/list')
       this.props.history.push('/search/list?q=' + newSearch)
     }
   }
 
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return nextState.recepes !== this.state.recepes
-  // }
 
 
   // componentDidUpdate(prevProps, prevState) {
@@ -86,7 +77,7 @@ class Main extends Component {
             ))
           } */}
           <Switch>
-            <Route path="/search/list" component={List} />
+            <Route path="/search/list" render={() => <List query={this.state.query} />} />
           </Switch>
         </div>
       </Aux>
