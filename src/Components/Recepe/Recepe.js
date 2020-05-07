@@ -42,7 +42,7 @@ class Recepe extends Component {
           <h3>{this.props.title}</h3>
           <img src={this.props.img} alt={this.props.title} height="300" width="400" className={styles.Recepe_Img} />
           <Link to={{
-            pathname: "/" + this.props.id,
+            pathname: "/list/" + this.props.id,
             search: '?' + queryString
           }}>
             <button className={styles.Btn} >CHECK IT OUT</button>

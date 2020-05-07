@@ -9,7 +9,7 @@ class FullRecipe extends Component {
     directionsUrl: null
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const query = new URLSearchParams(this.props.location.search);
     const ingredients = {};
     let title = null;
@@ -37,14 +37,14 @@ class FullRecipe extends Component {
   }
 
   render() {
-    // console.log(this.state.ingredients)
+
     return (
       <div>
         <h1>{this.state.title}</h1>
 
         <img src={this.state.img} alt={this.state.title} />
 
-        <p>Now that you have the Ingredients, <a target="_blank" href={this.state.directionsUrl} >click here</a> </p>
+        <p>Now that you have the Ingredients, <a target="_blank" rel="noopener noreferrer" href={this.state.directionsUrl} >click here</a> </p>
       </div>
     )
   }
