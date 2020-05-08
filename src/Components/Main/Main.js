@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Recepe from "../Recepe/Recepe"
 import List from '../List/List';
 import Aux from '../../hoc/Aux/Aux';
-import styles from './Main.module.css'
+import styles from './Main.module.css';
+import queryString from 'query-string';
 
 import { Route, Link, Switch } from 'react-router-dom';
 
@@ -39,6 +40,7 @@ class Main extends Component {
   // }
 
   render() {
+    // console.log(this.props)
     let advice = null;
     let disabled = null;
 
@@ -77,7 +79,7 @@ class Main extends Component {
             ))
           } */}
           <Switch>
-            <Route path="/search/list" render={() => <List query={this.state.query} />} />
+            <Route path="/search/list" render={() => <List query={this.state.query} ndQuery={queryString.parse(window.location.search).q} />} />
           </Switch>
         </div>
       </Aux>

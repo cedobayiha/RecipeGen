@@ -26,24 +26,22 @@ class List extends Component {
 
   }
 
+  // shouldComponentUpdate() {
+  //   return this.state.query !== queryString.parse(window.location.search).q
+  // }
+
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.query !== this.props.query) {
       this.setState({ query: this.props.query })
       this.getData(this.props.query)
     }
-
-    if (prevState.newQuery !== this.state.newQuery) {
-      this.getData(this.state.newQuery)
+    if (prevProps.ndQuery !== this.props.ndQuery) {
+      this.getData(this.props.ndQuery)
     }
-
   }
 
   render() {
-    // let str = queryString.parse(window.location.search).q;
-    // if (this.state.query !== str) {
-    //   this.setStr(str)
-    // }
-    // console.log(str)
+    console.log(this.props.ndQuery)
     return (
       <div>
         {
