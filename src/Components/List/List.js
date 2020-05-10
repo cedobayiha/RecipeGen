@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import Recepe from '../Recepe/Recepe';
 import queryString from 'query-string';
 
+import Spinner from '../Spinner/Spinner';
+
 class List extends Component {
   state = {
     recepes: [],
     query: queryString.parse(window.location.search).q,
-    newQuery: null
+    newQuery: null,
+    error: false
   }
 
 
@@ -20,15 +23,16 @@ class List extends Component {
   }
 
   getData = async (parser) => {
-    const res = await fetch(`https://api.edamam.com/search?q=${parser}&app_id=${process.env.REACT_APP_ID}&app_key=${process.env.REACT_APP_SECRET_KEY}`)
-    const info = await res.json();
-    this.setState({ recepes: info.hits })
-
+    try {
+      const res = await fetch(`https://api.edamam.com/search?q=${parser}&app_id=${process.env.REACT_APP_ID}&app_key=${process.env.REACT_APP_SECRET_KEY}`)
+      const info = await res.json();
+      this.setState({ recepes: info.hits })
+    } catch (err) {
+      console.log(err)
+      this.setState({ error: true })
+    }
   }
 
-  // shouldComponentUpdate() {
-  //   return this.state.query !== queryString.parse(window.location.search).q
-  // }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.query !== this.props.query) {
@@ -41,22 +45,24 @@ class List extends Component {
   }
 
   render() {
-    console.log(this.props.ndQuery)
+    let list = this.state.error ? <p>Food and recipes can't be loaded, you've reach your max search under a minute. Wait a minute or two and try again</p> : <Spinner />;
+    if (this.state.recepes.length > 1 && this.state.error === false) {
+      list =
+        this.state.recepes.map((recepes, i) => (
+          <Recepe key={recepes.recipe.label + i}
+            id={recepes.recipe.label + i}
+            title={recepes.recipe.label}
+            img={recepes.recipe.image}
+            calories={recepes.recipe.calories}
+            ingredientsLines={recepes.recipe.ingredientLines}
+            ingredients={recepes.recipe.ingredients}
+            directions={recepes.recipe.url}
+          />
+        ))
+    }
     return (
       <div>
-        {
-          this.state.recepes.map((recepes, i) => (
-            <Recepe key={recepes.recipe.label + i}
-              id={recepes.recipe.label + i}
-              title={recepes.recipe.label}
-              img={recepes.recipe.image}
-              calories={recepes.recipe.calories}
-              ingredientsLines={recepes.recipe.ingredientLines}
-              ingredients={recepes.recipe.ingredients}
-              directions={recepes.recipe.url}
-            />
-          ))
-        }
+        {list}
       </div>
     )
   }

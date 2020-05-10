@@ -1,23 +1,50 @@
 .Main {
   text-align: center;
-  width: 90%;
-  margin: 0 auto;
+  width: 100%;
+  background-image: url('../../Assets/img/search.jpg');
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  margin: 60px auto 0 auto;
   box-sizing: border-box;
   padding: 20px;
-  
+  height: 40vh;
 }
 
 
 .Form{
   text-align: center;
-  margin: 25px auto;
+  margin: 80px auto;
   box-sizing: border-box;
 }
 
-Btn{
+.Btn{
   cursor: pointer;
+  padding: 9px;
+  border-radius: 3px;
+  background-color: #5F9EA0;
+  color: #000;
+  font-weight: bold;
+  margin-left: 4px;
 }
 
-Btn:disabled{
+.Btn:disabled{
   cursor: not-allowed;
+  background-color:#DCDCDC;
+  color: #808080;
+  font-weight: normal;
+}
+
+.Search{
+  border-radius: 3px;
+  width: 11.5rem;
+  height: 1.7rem;
+  background-color: #FFFFF0;
+}
+
+@media only screen and (max-width){
+  .Main{
+    background-image: url('../../Assets/img/search_mobile.jpg');
+
+  }
 }

@@ -40,7 +40,7 @@ class Recepe extends Component {
 
         <div className={styles.Recepe_wrapper}>
           <h3>{this.props.title}</h3>
-          <img src={this.props.img} alt={this.props.title} height="300" width="400" className={styles.Recepe_Img} />
+          <img src={this.props.img} alt={this.props.title} className={styles.Recepe_Img} />
           <Link to={{
             pathname: "/list/" + this.props.id,
             search: '?' + queryString
