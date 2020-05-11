@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ReviewForm from '../ReviewForm/ReviewForm';
+import styles from './FullRecipe.module.css'
 
 class FullRecipe extends Component {
   state = {
@@ -6,7 +8,8 @@ class FullRecipe extends Component {
     img: null,
     calories: null,
     ingredientLines: null,
-    directionsUrl: null
+    directionsUrl: null,
+    showReview: false
   }
 
   componentDidMount() {
@@ -36,15 +39,33 @@ class FullRecipe extends Component {
     this.setState({ ingredients: ingredients, calories: calories, img: img, title: title, directionsUrl: directions })
   }
 
+  toggleReviewHandler = () => {
+    this.setState((prevState) => {
+      return { showReview: !prevState.showReview }
+    }
+    )
+  }
+
+
   render() {
+    let rev = null;
+    if (this.state.showReview) {
+      rev = <ReviewForm title={this.state.title} toggle={this.toggleReviewHandler} />
+    } else {
+      rev = null;
+    }
 
     return (
-      <div>
+      <div className={styles.Container}>
         <h1>{this.state.title}</h1>
 
         <img src={this.state.img} alt={this.state.title} />
 
         <p>Now that you have the Ingredients, <a target="_blank" rel="noopener noreferrer" href={this.state.directionsUrl} >click here</a> </p>
+        {this.state.showReview ? <button onClick={this.toggleReviewHandler}>Hide Review form</button> : <button onClick={this.toggleReviewHandler}>Review Meal</button>}
+
+        {rev}
+        {/* <button onClick={this.toggleReviewHandler}>Review Meal</button> */}
       </div>
     )
   }

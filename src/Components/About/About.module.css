@@ -1,7 +1,18 @@
 .About{
-  Margin: 80px auto;
+  Margin: 100px auto;
   padding: 1.4rem;
-  width: 80%;
+  width: 65%;
   border: #4B0082 solid 1px;
   border-radius: 10px;
+}
+
+@media screen and (max-width: 600px){
+  .About{
+    width: 70%;
+    height: 60vh;
+  }
+}
+
+@media screen and (max-width: 800px) and (min-width: 601){
+
 }

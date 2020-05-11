@@ -3,10 +3,7 @@ import Layout from './hoc/Layout/Layout';
 import About from './Components/About/About';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Main from './Components/Main/Main';
-
-
-
-
+import Reviews from './Components/Reviews/Reviews';
 import styles from './App.module.css';
 import FullRecipe from './Components/FullRecipe/FullRecipe';
 class App extends Component {
@@ -21,6 +18,7 @@ class App extends Component {
             <Route path="/list/:id" exact component={FullRecipe} />
             <Route path="/about" component={About} />
             <Route path="/search" component={Main} />
+            <Route path="/reviews" component={Reviews} />
             <Redirect from="/" to="/search" />
           </Switch>
         </Layout>

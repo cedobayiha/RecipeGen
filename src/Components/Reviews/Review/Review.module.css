@@ -1,0 +1,12 @@
+.Review {
+  width: 80%;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 3px #A363FF;
+  padding: 10px;
+  margin: .7rem auto;
+  box-sizing: border-box;
+}
+
+.Review h4{
+  color: #4B0082;
+}

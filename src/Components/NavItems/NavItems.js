@@ -5,8 +5,8 @@ import styles from './NavItems.module.css'
 const navItems = (props) => {
   return (
     <ul className={styles.NavItems}>
-      <NavItem link="/search">
-        Search
+      <NavItem link="/reviews">
+        Reviews
        </NavItem>
       <NavItem link="/about">
         About

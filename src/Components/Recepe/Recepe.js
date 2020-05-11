@@ -46,7 +46,7 @@ class Recepe extends Component {
             <h3>{this.props.title}</h3>
             <img src={this.props.img} alt={this.props.title} className={styles.Recepe_Img} />
 
-            {/* <button className={styles.Btn} >CHECK IT OUT</button> */}
+
 
           </div>
         </Link>
