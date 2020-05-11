@@ -37,17 +37,19 @@ class Recepe extends Component {
     // console.log(queryString)
     return (
       <Aux>
+        <Link to={{
+          pathname: "/list/" + this.props.id,
+          search: '?' + queryString
+        }}>
 
-        <div className={styles.Recepe_wrapper}>
-          <h3>{this.props.title}</h3>
-          <img src={this.props.img} alt={this.props.title} className={styles.Recepe_Img} />
-          <Link to={{
-            pathname: "/list/" + this.props.id,
-            search: '?' + queryString
-          }}>
-            <button className={styles.Btn} >CHECK IT OUT</button>
-          </Link>
-        </div>
+          <div className={styles.Recepe_wrapper}>
+            <h3>{this.props.title}</h3>
+            <img src={this.props.img} alt={this.props.title} className={styles.Recepe_Img} />
+
+            {/* <button className={styles.Btn} >CHECK IT OUT</button> */}
+
+          </div>
+        </Link>
 
 
 

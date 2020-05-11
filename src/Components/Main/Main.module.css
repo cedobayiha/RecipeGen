@@ -8,13 +8,14 @@
   margin: 60px auto 0 auto;
   box-sizing: border-box;
   padding: 20px;
-  height: 40vh;
+  height: 60vh;
+
 }
 
 
 .Form{
   text-align: center;
-  margin: 80px auto;
+  margin: 150px auto;
   box-sizing: border-box;
 }
 
@@ -37,14 +38,68 @@
 
 .Search{
   border-radius: 3px;
-  width: 11.5rem;
+  width: 20rem;
   height: 1.7rem;
   background-color: #FFFFF0;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
-@media only screen and (max-width){
+@media only screen and (max-width: 599px){
   .Main{
     background-image: url('../../Assets/img/search_mobile.jpg');
-
+    height: 60vh;
+    
   }
+
+  .Form{
+    margin: 22vh auto 0 auto;
+  }
+
+  .Search{
+    width: 14rem;
+    
+    
+  }
+
+}
+
+@media only screen and (max-width: 800px) and (min-width: 600px)  {
+ .Main{
+   height: 35vh;
+   margin: 60px auto 0 auto;
+ }
+ .Form{
+  margin: 12vh auto 0 auto;
+}
+.Search{
+  width: 22rem;
+  height: 2.5rem;
+  
+}
+
+.Btn{
+  padding: 15px;
+  font-size: .8rem;
+}
+}
+
+@media only screen and (max-width:1025px) and (min-width:801px){
+  .Main{
+    height: 35vh;
+    margin: 60px auto 0 auto;
+  }
+  .Form{
+   margin: 12vh auto 0 auto;
+ }
+ .Search{
+   width: 24rem;
+   height: 2.5rem;
+   
+ }
+ 
+ .Btn{
+   padding: 15px;
+   font-size: .8rem;
+ }
 }
