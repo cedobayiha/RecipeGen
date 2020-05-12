@@ -6,7 +6,7 @@ const navItems = (props) => {
   return (
     <ul className={styles.NavItems}>
       <NavItem link="/reviews">
-        Reviews
+        Inspiration
        </NavItem>
       <NavItem link="/about">
         About

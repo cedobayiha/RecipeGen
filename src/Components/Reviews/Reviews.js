@@ -5,7 +5,9 @@ import Review from './Review/Review';
 
 class Reviews extends Component {
   state = {
-    reviews: []
+    reviews: [],
+    filter: ''
+
   }
 
   componentDidMount() {
@@ -17,24 +19,66 @@ class Reviews extends Component {
             ...res.data[key], id: key
           })
         }
+        // let filteredInfo = info.filter(review => (review.title.indexOf(this.state.search) !== -1));
         this.setState({ reviews: info })
       })
   }
 
+  onSearchChange = (e) => {
+    e.preventDefault();
+    this.setState({ filter: e.target.value })
+  }
+
+
+
   render() {
-    console.log(this.state.reviews)
+    let filteredRevs = this.state.reviews.filter(review => (review.title.toLowerCase().indexOf(this.state.filter.toLowerCase()) !== -1));
+
+
     return (
-      <div style={{ marginTop: '72px' }}>{
-        this.state.reviews.map(review => (<Review
-          title={review.title}
-          name={review.name}
-          key={review.id}
-          review={review.review}
-        />
-        ))
-      }</div>
+      <div style={{ marginTop: '72px' }}>
+        <form action="">
+          <input type="text" onChange={this.onSearchChange} value={this.state.filter} />
+        </form>
+        <div>
+          {
+            filteredRevs.map(review => (<Review
+              title={review.title}
+              name={review.name}
+              key={review.id}
+              review={review.review}
+            />))
+          }
+        </div>
+      </div>
     )
   }
 }
 
-export default Reviews
+export default Reviews;
+
+    // if (this.state.filter.length >= 1) {
+    //   newArr = this.state.reviews.filter(review => {
+    //     const arr = review.title.split(' ');
+    //     for (let word in arr) {
+    //       if (word.toLowerCase() === this.state.filter.toLowerCase()) {
+    //         return review
+    //       }
+    //     }
+    //   })
+    //   return revComp = newArr.map(review => (<Review
+    //     title={review.title}
+    //     name={review.name}
+    //     key={review.id}
+    //     review={review.review}
+    //   />))
+    // }
+    // if (this.state.reviews.length > 1 && this.state.filter.length === 0) {
+    //   revComp = this.state.reviews.map(review => (<Review
+    //     title={review.title}
+    //     name={review.name}
+    //     key={review.id}
+    //     review={review.review}
+    //   />
+    //   ))
+    // }
