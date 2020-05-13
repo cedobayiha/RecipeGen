@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReviewForm from '../ReviewForm/ReviewForm';
 import styles from './FullRecipe.module.css'
+// import { lightblue } from 'color-name';
 
 class FullRecipe extends Component {
   state = {
@@ -10,7 +11,8 @@ class FullRecipe extends Component {
     ingredientLines: null,
     directionsUrl: null,
     showReview: false,
-    ingredientsArray: null
+    ingredientsArray: null,
+    servings: null
   }
 
   componentDidMount() {
@@ -21,9 +23,13 @@ class FullRecipe extends Component {
     let img = null;
     let calories = null;
     let directions = null
+    let servings = null;
 
     for (let param of query.entries()) {
-      if (param[0] === 'calories') {
+      if (param[0] === 'servings') {
+        servings = param[1];
+      }
+      else if (param[0] === 'calories') {
         calories = param[1];
       } else if (param[0] === 'img') {
         img = param[1];
@@ -33,13 +39,14 @@ class FullRecipe extends Component {
       else if (param[0] === 'directions') {
         directions = param[1];
       }
+
       else {
         ingredients[param[0]] = param[1];
-        igArr.push()
+        igArr.push(param[1])
       }
     }
 
-    this.setState({ ingredientsLines: ingredients, ingredientsArray: igArr, calories: calories, img: img, title: title, directionsUrl: directions })
+    this.setState({ ingredientsLines: ingredients, ingredientsArray: igArr, calories: calories, img: img, title: title, directionsUrl: directions, servings: servings })
   }
 
   toggleReviewHandler = () => {
@@ -52,12 +59,26 @@ class FullRecipe extends Component {
 
   render() {
     let rev = null;
+    let ig = null;
     if (this.state.showReview) {
       rev = <ReviewForm title={this.state.title} toggle={this.toggleReviewHandler} />
     } else {
       rev = null;
     }
-    console.log(this.state.ingredientsLines)
+
+    if (this.state.ingredientsArray) {
+      ig = (<div>
+        <h4 style={{ borderBottom: '1px #ccc solid' }}>{this.state.ingredientsArray.length} Ingredients</h4>
+        <ul style={{ width: '80%', margin: 0, textAlign: 'left' }}>
+          {this.state.ingredientsArray.map((ig, idx) => (<li key={ig + idx} style={{ listStyleType: 'none', margin: '10px', padding: '10px', }}>{ig}</li>))}
+        </ul>
+      </div>)
+    }
+
+
+
+    // console.log(this.state.servings, this.state.calories)
+
     return (
       <div className={styles.Container}>
         <h4>{this.state.title}</h4>
@@ -66,8 +87,27 @@ class FullRecipe extends Component {
         </div>
 
         <div className={styles.IngDiv}>
-          {this.props.ingredientLines}
-          <p>Now that you have the Ingredients, <a target="_blank" rel="noopener noreferrer" href={this.state.directionsUrl} >click here</a> </p>
+          {ig}
+        </div>
+        <div>
+          <div className={styles.IngH4}>
+            <h4 >Cooking Directions</h4>
+            <p>Now that you have the Ingredients, <a target="_blank" rel="noopener noreferrer" href={this.state.directionsUrl} >click here</a> to follow the cooking directions</p>
+          </div>
+
+          <div className={styles.IngH4}>
+            <h4>Nutrution</h4>
+            <div className={styles.Nutrition}>
+              <div className={styles.CalData}>{this.state.calories / this.state.servings}
+                <p className={styles.Cal}>Calories/Serving</p>
+              </div>
+
+              <div>
+                <button>{this.state.servings}</button>
+                <p>SERVINGS</p>
+              </div>
+            </div>
+          </div>
         </div>
 
 

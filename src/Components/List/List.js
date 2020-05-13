@@ -58,6 +58,7 @@ class List extends Component {
             ingredientsLines={recepes.recipe.ingredientLines}
             ingredients={recepes.recipe.ingredients}
             directions={recepes.recipe.url}
+            servings={recepes.recipe.yield}
           />
         ))
     }

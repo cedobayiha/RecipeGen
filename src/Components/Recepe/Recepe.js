@@ -31,7 +31,8 @@ class Recepe extends Component {
     queryParams.push('directions=' + this.props.directions);
     queryParams.push('title=' + this.props.title);
     queryParams.push('img=' + this.props.img);
-    queryParams.push('calories=' + this.props.calories.toFixed(2));
+    queryParams.push('calories=' + this.props.calories.toFixed(2))
+    queryParams.push('servings=' + this.props.servings);
     const queryString = queryParams.join('&');
 
     // console.log(queryString)
