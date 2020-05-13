@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+
 
 class ReviewForm extends Component {
   state = {
     name: '',
     title: this.props.title,
     review: '',
-    showBtn: true
+
   }
 
   nameChangeHandle = (e) => {
-    this.setState({ name: e.target.value })
+    this.setState({ name: e.target.value.substr(0, 20) })
   }
 
   reviewChangeHandler = (e) => {
-    this.setState({ review: e.target.value })
+    this.setState({ review: e.target.value.substr(0, 500) })
   }
 
   submitHandler = (e) => {
@@ -36,7 +36,6 @@ class ReviewForm extends Component {
 
 
   render() {
-
     let disabled = true;
     if (this.state.name.length >= 2 && this.state.review.length >= 10) {
       disabled = false;
@@ -44,9 +43,9 @@ class ReviewForm extends Component {
     return (
       <div>
         <form action="" onSubmit={this.submitHandler}>
-          <input type="text" placeholder="Your name" onChange={this.nameChangeHandle} />
+          <input type="text" placeholder="Your name" onChange={this.nameChangeHandle} value={this.state.name} />
           <input type="text" value={this.props.title} readOnly />
-          <textarea name="" id="" cols="30" rows="10" onChange={this.reviewChangeHandler}>
+          <textarea name="" id="" cols="30" rows="10" onChange={this.reviewChangeHandler} value={this.state.review}>
           </textarea>
           <button disabled={disabled}>Publish</button>
         </form>

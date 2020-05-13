@@ -9,12 +9,14 @@ class FullRecipe extends Component {
     calories: null,
     ingredientLines: null,
     directionsUrl: null,
-    showReview: false
+    showReview: false,
+    ingredientsArray: null
   }
 
   componentDidMount() {
     const query = new URLSearchParams(this.props.location.search);
     const ingredients = {};
+    const igArr = [];
     let title = null;
     let img = null;
     let calories = null;
@@ -32,11 +34,12 @@ class FullRecipe extends Component {
         directions = param[1];
       }
       else {
-        ingredients[param[0]] = param[1]
+        ingredients[param[0]] = param[1];
+        igArr.push()
       }
     }
 
-    this.setState({ ingredients: ingredients, calories: calories, img: img, title: title, directionsUrl: directions })
+    this.setState({ ingredientsLines: ingredients, ingredientsArray: igArr, calories: calories, img: img, title: title, directionsUrl: directions })
   }
 
   toggleReviewHandler = () => {
@@ -54,18 +57,24 @@ class FullRecipe extends Component {
     } else {
       rev = null;
     }
-
+    console.log(this.state.ingredientsLines)
     return (
       <div className={styles.Container}>
-        <h1>{this.state.title}</h1>
+        <h4>{this.state.title}</h4>
+        <div className={styles.ImageDiv}>
+          <img src={this.state.img} alt={this.state.title} />
+        </div>
 
-        <img src={this.state.img} alt={this.state.title} />
+        <div className={styles.IngDiv}>
+          {this.props.ingredientLines}
+          <p>Now that you have the Ingredients, <a target="_blank" rel="noopener noreferrer" href={this.state.directionsUrl} >click here</a> </p>
+        </div>
 
-        <p>Now that you have the Ingredients, <a target="_blank" rel="noopener noreferrer" href={this.state.directionsUrl} >click here</a> </p>
+
         {this.state.showReview ? <button onClick={this.toggleReviewHandler}>Hide Review form</button> : <button onClick={this.toggleReviewHandler}>Review Meal</button>}
 
         {rev}
-        {/* <button onClick={this.toggleReviewHandler}>Review Meal</button> */}
+
       </div>
     )
   }

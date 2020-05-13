@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Review from './Review/Review';
+import styles from './Reviews.module.css';
 
 
 class Reviews extends Component {
@@ -37,7 +38,7 @@ class Reviews extends Component {
 
     return (
       <div style={{ marginTop: '72px' }}>
-        <form action="">
+        <form action="" className={styles.InputForm}>
           <input type="text" onChange={this.onSearchChange} value={this.state.filter} />
         </form>
         <div>
@@ -57,28 +58,3 @@ class Reviews extends Component {
 
 export default Reviews;
 
-    // if (this.state.filter.length >= 1) {
-    //   newArr = this.state.reviews.filter(review => {
-    //     const arr = review.title.split(' ');
-    //     for (let word in arr) {
-    //       if (word.toLowerCase() === this.state.filter.toLowerCase()) {
-    //         return review
-    //       }
-    //     }
-    //   })
-    //   return revComp = newArr.map(review => (<Review
-    //     title={review.title}
-    //     name={review.name}
-    //     key={review.id}
-    //     review={review.review}
-    //   />))
-    // }
-    // if (this.state.reviews.length > 1 && this.state.filter.length === 0) {
-    //   revComp = this.state.reviews.map(review => (<Review
-    //     title={review.title}
-    //     name={review.name}
-    //     key={review.id}
-    //     review={review.review}
-    //   />
-    //   ))
-    // }

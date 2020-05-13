@@ -1,3 +1,29 @@
 .Container{
   margin-top: 75px;
+  
+}
+
+.Container h4{
+  font-weight: 400;
+  font-size: 1.5rem;
+  padding-top: 10px;
+}
+
+.ImageDiv img{
+  width:50%;
+  height: 11rem;
+  border: solid 3px #ccc;
+  /* float: left; */
+  margin-left: 10px;
+}
+
+.ImageDiv{
+  display: flex;
+  width: 85%;
+  margin: 5px auto;
+  padding-bottom: 10px;
+}
+
+.IngDiv{
+  
 }

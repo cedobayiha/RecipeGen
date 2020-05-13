@@ -26,7 +26,7 @@ class Recepe extends Component {
   render() {
     const queryParams = [];
     this.props.ingredientsLines.map((ig, idx) => {
-      queryParams.push(idx + 1 + '=' + ig)
+      return queryParams.push(idx + 1 + '=' + ig)
     })
     queryParams.push('directions=' + this.props.directions);
     queryParams.push('title=' + this.props.title);
@@ -43,11 +43,8 @@ class Recepe extends Component {
         }}>
 
           <div className={styles.Recepe_wrapper}>
-            <h3>{this.props.title}</h3>
             <img src={this.props.img} alt={this.props.title} className={styles.Recepe_Img} />
-
-
-
+            <h3>{this.props.title}</h3>
           </div>
         </Link>
 
