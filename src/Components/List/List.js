@@ -45,7 +45,6 @@ class List extends Component {
   }
 
   render() {
-    // console.log(this.state.recepes)
     let list = this.state.error ? <p>Food and recipes can't be loaded, you've reach your max search under a minute. Wait a minute or two and try again</p> : <Spinner />;
     if (this.state.recepes.length > 1 && this.state.error === false) {
       list =
@@ -59,6 +58,7 @@ class List extends Component {
             ingredients={recepes.recipe.ingredients}
             directions={recepes.recipe.url}
             servings={recepes.recipe.yield}
+            source={recepes.recipe.source}
           />
         ))
     }

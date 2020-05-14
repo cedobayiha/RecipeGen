@@ -1,19 +1,38 @@
 .Container{
   margin-top: 75px;
-  
 }
 
-.Container h4{
-  font-weight: 400;
+.Title{
+  font-weight: 450;
   font-size: 1.5rem;
-  padding-top: 10px;
+  padding-top: .8rem;
+  text-align: center;
+}
+
+.Ingredients{
+  width: 100%;
+  margin-top: 1rem; 
+}
+
+.IngTitle{
+  border-bottom: 1px #ccc solid;
+}
+
+.IngUl{
+  width: 75%;
+  text-align: left;
+}
+
+
+.IngLi{
+  list-style-type: none; 
+  padding: 10px 0;
 }
 
 .ImageDiv img{
   width:50%;
   height: 11rem;
   border: solid 3px #ccc;
-  /* float: left; */
   margin-left: 10px;
 }
 
@@ -36,7 +55,15 @@
   width: 90%;
   margin: auto;
   padding-bottom: .5rem;
+  /* height: 40vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  /* border-bottom: 1px #ccc solid; */
 }
+
+
 
 .IngH4 h4{
   padding-bottom: .5rem;
@@ -49,10 +76,7 @@
   background-color: #ccc;
 }
 
-.IngDiv ul{
-  width: 50%;
-  margin: 0 auto;
-}
+
 
 .Nutrition {
   display: flex;
@@ -65,4 +89,297 @@
 
 .CalData{
   margin-top: .5rem;
+}
+
+
+.FormEnabler p{
+  margin-top: 3rem;
+  font-size: 1.1rem;
+  font-weight: 450;
+}
+
+.FormEnablerShow{
+  padding: 0.8rem 1rem;
+  background-color: #4B0082;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  margin: 1.6rem;
+  cursor: pointer;
+}
+
+.FormEnablerHide{
+  padding: 0.8rem 1rem;
+  background-color: #8B008B;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  margin: 1.6rem;
+  cursor: pointer;
+}
+
+
+/* small tablet styles */
+@media screen and (min-width: 620px){
+
+  .IngLi{
+    font-size: 16px;
+  }
+
+  .Container{
+    width: 80%;
+    margin: 75px auto 0 auto;
+  }
+
+.Title{
+    font-weight: 500;
+    font-size: 29px;
+    padding-top: 1.8rem;
+  }
+
+  .ImageDiv img{
+    width: 57%;
+    height: 100%;
+  }
+  
+  .ImageDiv{
+    width: 85%;
+    height: 19rem;
+  }
+
+  .Nutrition{
+    margin-top: 1rem;
+    width: 100%
+  }
+
+  .IngDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .IngH4{
+    width: 50%;
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .IngH4 h4{
+    font-size: 20px;
+    font-weight: 450;
+  }
+
+  .IngTitle{
+    font-size: 20px;
+    font-weight: 450;
+  }
+
+  .CalData{
+   
+    font-size: 16px
+  }
+
+  .Cal{
+    
+    font-size: 16.5px;
+  }
+
+  .Servings{
+    font-size: 14.5px;
+  }
+
+  .Directions{
+    width: 90%;
+    margin: 5px auto;
+  }
+  .Directions p{
+    text-align: left;
+    font-size: 16px;
+  }
+
+  .Directions h4{
+    font-size: 20px;
+    font-weight: 450;
+  }
+
+  .Ingredients{
+    width: 50%;
+    margin-top: 1rem;
+  }
+
+  .Button{
+    padding: 1px 15px;
+    margin-top: 2px;
+    font-size: 1rem;
+  }
+
+  .IngDir{
+    width: 100%;
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+}
+
+
+/* large tablets & laptops */
+@media screen and (min-width: 960px){
+  body{
+    font-size: 18px;
+  }
+
+  .Container{
+    width: 90%;
+  }
+
+  .Title{
+    padding-top: 2.1rem;
+    font-size: 32px;
+  }
+
+  .ImageDiv{
+    height: 25rem;
+  }
+
+  .IngDiv h4{
+    font-size: 23px;
+  }
+
+  .IngLi{
+    font-size: 18px;
+  }
+
+  .IngTitle{
+    font-size: 23px;
+  }
+
+  .Cal{
+    margin-top: 1.4rem;
+    font-size: 18px;
+  }
+  
+  .CalData{
+    margin-top: .6rem;
+    font-size: 18px;
+  }
+
+  .Button{
+    font-size: 20px;;
+  }
+
+  .Servings{
+    font-size: 16px;
+  }
+
+
+  .Directions p{
+    font-size: 18px;
+  }
+
+  .Directions h4{
+    font-size: 23px;
+  }
+
+  .FormEnabler p{
+    font-size: 18px;
+  }
+
+  .FormEnabler p{
+    font-size: 20px;
+    font-weight: 450;
+  }
+  
+  .FormEnablerShow{
+    padding: .5rem .8rem;
+    font-size: 20px;
+    ;
+  }
+  
+  .FormEnablerHide{
+    padding: .5rem .8rem;
+    font-size: 20px;
+    
+  }
+}
+/* desktop style  */
+@media screen and (min-width: 1200px){
+  body{
+    font-size: 20px;
+  }
+
+  .Container{
+    width: 80%;
+  }
+
+  .Title{
+    padding-top: 2.1rem;
+    font-size: 36px;
+  }
+
+  .ImageDiv{
+    height: 22rem;
+  }
+
+  .IngDiv h4{
+    font-size: 25px;
+  }
+
+  .IngLi{
+    font-size: 20px;
+  }
+
+  .IngTitle{
+    font-size: 25px;
+  }
+
+  .Cal{
+    margin-top: 1.4rem;
+    font-size: 20px;
+  }
+  
+  .CalData{
+    margin-top: .6rem;
+    font-size: 20px;
+  }
+
+  .Button{
+    font-size: 20px;;
+  }
+
+  .Servings{
+    font-size: 20px;
+  }
+
+
+  .Directions p{
+    font-size: 18px;
+  }
+
+  .Directions h4{
+    font-size: 25px;
+  }
+
+
+
+  .FormEnabler p{
+    font-size: 20px;
+    font-weight: 450;
+  }
+  
+  .FormEnablerShow{
+    padding: .6rem .9rem;
+    font-size: 20px;
+    ;
+  }
+  
+  .FormEnablerHide{
+    padding: .6rem .9rem;
+    font-size: 20px;
+    
+  }
 }
