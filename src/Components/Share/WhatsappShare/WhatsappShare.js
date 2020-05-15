@@ -10,10 +10,10 @@ const whatsAppShare = (props) => {
       separator=":: "
       className="Demo__some-network__share-button"
     >
-      <WhatsappIcon size={32} round />
+      <WhatsappIcon size={props.size} round />
     </WhatsappShareButton>
 
-    <div className="Demo__some-network__share-count">&nbsp;</div>
+    {/* <div className="Demo__some-network__share-count">&nbsp;</div> */}
   </div>)
 
 }

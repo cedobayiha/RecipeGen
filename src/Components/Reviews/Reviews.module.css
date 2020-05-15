@@ -1,4 +1,39 @@
 .InputForm{
-  margin: 30px auto;
+  margin: 50px auto 20px auto;
+}
 
+.Search{
+  width: 60%;
+  height: 25px;
+  border-radius: 10px;
+}
+
+/* small tablet styles */
+@media screen and (min-width: 620px){
+
+
+  .Search{
+    width: 45%
+  }
+}
+
+
+/* large tablets & laptops */
+@media screen and (min-width: 960px){
+  .Search{
+    width: 35%;
+    height: 40px;
+  }
+
+}
+
+/* desktop style  */
+@media screen and (min-width: 1200px){
+  .Search{
+    width: 30%;
+    height: 25px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  
 }

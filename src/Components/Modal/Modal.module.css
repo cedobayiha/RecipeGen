@@ -1,0 +1,16 @@
+.Modal{
+  width: 60%;
+  position: fixed;
+  background-color: #fff;
+  z-index: 500;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px #A363FF;
+  padding: 4px;
+  left: 20%;
+  top: 43%;
+  box-sizing: border-box;
+  transition: all 0.3s ease-out;
+}

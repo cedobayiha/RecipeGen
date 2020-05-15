@@ -2,17 +2,35 @@
   margin-top: 75px;
 }
 
+.SubTitle{
+  display: none;
+}
+
 .Share{
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+}
+
+.ShareLinks{
+  display: none;
+}
+
+.ShareBtn{
+  padding: 12px 30px;
+  font-size: 22px;
+  background-color: #ccc;
+  border-radius: 10px;
 }
 
 .Main{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin-bottom: 35px;
+  padding: 0 20px;
 }
+
+
 
 .ShareAndSource{
   display: flex;
@@ -66,14 +84,13 @@
 .ImageDiv{
   display: flex;
   width: 55%;
-  margin: 5px auto;
-  padding-bottom: 10px;
+  margin: 5px auto 0 auto;
 }
 
 
 .IngDiv h4{
   width: 90%;
-  margin: auto;
+  margin: 5px auto 0 auto;
   padding-bottom: .5rem;
   border-bottom: 1px #ccc solid;
 }
@@ -151,6 +168,28 @@
 /* small tablet styles */
 @media screen and (min-width: 620px){
 
+  .FirstQuat{
+    background-color: #d2b2e5;
+  background-color: #E6E6FA;
+  border-radius: 10px;
+}
+
+  .SubTitle{
+    display: block;
+    text-align: left;
+    font-weight: 500;
+    font-size: 29px;
+  }
+
+  .ShareLinks{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .ShareBtn{
+    display: none;
+  }
+
   .IngLi{
     font-size: 16px;
   }
@@ -161,19 +200,30 @@
   }
 
 .Title{
-    font-weight: 500;
-    font-size: 29px;
-    padding-top: 1.8rem;
+  display: none;
   }
 
   .ImageDiv img{
-    width: 57%;
+    width: 100%;
     height: 100%;
   }
   
+  .Main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 20px 0;
+    margin-bottom: 22px;
+  }
+
   .ImageDiv{
-    width: 85%;
+    width: 50%;
     height: 19rem;
+  }
+
+
+  .ShareAndSource{
+    width: 40%;
   }
 
   .Nutrition{
@@ -256,6 +306,33 @@
 
 /* large tablets & laptops */
 @media screen and (min-width: 960px){
+
+  .ShareLinks{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .ShareBtn{
+    display: none;
+  } 
+
+  .ShareAndAround{
+    width: 35%;
+  }
+
+  .Title{
+    display: none;
+  }
+
+  .SubTitle{
+    font-size: 32px;
+    text-align: left;
+  }
+
+  .ShareAndAround p{
+    font: 20px;
+  }
+
   body{
     font-size: 18px;
   }
@@ -271,6 +348,12 @@
 
   .ImageDiv{
     height: 25rem;
+    width: 50%
+  }
+
+  .Main{
+    width: 85%;
+    margin-bottom: 50px;
   }
 
   .IngDiv h4{
@@ -338,6 +421,10 @@
   body{
     font-size: 20px;
   }
+
+  .Title{
+    display: none;
+    }
 
   .Container{
     width: 80%;

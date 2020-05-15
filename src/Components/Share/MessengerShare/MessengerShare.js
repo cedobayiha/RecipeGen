@@ -9,7 +9,7 @@ const messengerShare = (props) => {
         appId="521270401588372"
         className="Demo__some-network__share-button"
       >
-        <FacebookMessengerIcon size={32} round />
+        <FacebookMessengerIcon size={props.size} round />
       </FacebookMessengerShareButton>
     </div>
   )

@@ -10,14 +10,14 @@ const facebookShare = (props) => {
         quote={props.title}
         className="Demo__some-network__share-button"
       >
-        <FacebookIcon size={32} round />
+        <FacebookIcon size={props.size} round />
       </FacebookShareButton>
 
-      <div>
+      {/* <div>
         <FacebookShareCount url={props.url} className="Demo__some-network__share-count">
           {count => count}
         </FacebookShareCount>
-      </div>
+      </div> */}
     </div>
   )
 

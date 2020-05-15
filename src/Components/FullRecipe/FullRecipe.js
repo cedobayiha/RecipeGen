@@ -6,6 +6,7 @@ import MessengerShare from '../Share/MessengerShare/MessengerShare';
 import PintrestShare from '../Share/PintrestShare/PintrestShare';
 import TwitterShare from '../Share/TwitterShare/TwitterShare';
 import WhatsappShare from '../Share/WhatsappShare/WhatsappShare';
+import Modal from '../Modal/Modal';
 
 class FullRecipe extends Component {
   state = {
@@ -17,7 +18,8 @@ class FullRecipe extends Component {
     showReview: false,
     ingredientsArray: null,
     servings: null,
-    source: null
+    source: null,
+    show: false
   }
 
   componentDidMount() {
@@ -65,9 +67,17 @@ class FullRecipe extends Component {
     )
   }
 
+  toggleSocialShareHandler = () => {
+    this.setState((prevState) => {
+      return { show: !prevState.show }
+    }
+    )
+  }
+
 
   render() {
-    const shareUrl = window.location.href
+    let shareUrl = window.location.href
+    let modal = null;
     let rev = null;
     let ig = null;
     let newArr = null;
@@ -99,60 +109,79 @@ class FullRecipe extends Component {
       </div>)
     }
 
+    if (this.state.show) {
+      modal = (<Modal>
+        <FacebookShare title={this.state.title} url={shareUrl} size={32} />
+        <MessengerShare title={this.state.title} url={shareUrl} size={32} />
+        <PintrestShare title={this.state.title} url={shareUrl} img={this.state.img} size={32} />
+        <TwitterShare title={this.state.title} url={shareUrl} size={32} />
+        <WhatsappShare title={this.state.title} url={shareUrl} size={32} />
+      </Modal>)
+    }
+
+    // console.log(String(window.location))
+
 
     return (
       <div className={styles.Container}>
-        <h3 className={styles.Title}>{this.state.title}</h3>
-        <div className={styles.Main}>
-          <div className={styles.ImageDiv}>
-            <img src={this.state.img} alt={this.state.title} />
-          </div>
-
-          <div className={styles.ShareAndSource}>
-            <p>See full recipe on : <a href={this.state.directionsUrl}>{this.state.source}</a></p>
-
-            <div className={styles.Share}>
-              <FacebookShare title={this.state.title} url={shareUrl} />
-              <MessengerShare title={this.state.title} url={shareUrl} />
-              <PintrestShare title={this.state.title} url={shareUrl} img={this.state.img} />
-              <TwitterShare title={this.state.title} url={shareUrl} />
-              <WhatsappShare title={this.state.title} url={shareUrl} />
-
-              {/* {facebook} {messenger}{twitter}{whatsApp}{pintrest} */}
+        <div className={styles.FirstQuat}>
+          <h3 className={styles.Title}>{this.state.title}</h3>
+          <div className={styles.Main}>
+            <div className={styles.ImageDiv}>
+              <img src={this.state.img} alt={this.state.title} />
             </div>
-          </div>
-        </div>
 
-        <div className={styles.IngDiv}>
-          {ig}
-          <div className={styles.IngH4}>
-            <div >
-              <h4>Nutrution</h4>
-              <div className={styles.Nutrition}>
-                <div className={styles.CalData}>{(this.state.calories / this.state.servings).toFixed(2)}
-                  <p className={styles.Cal}>Calories/Serving</p>
-                </div>
-
-                <div >
-                  <button className={styles.Button}>{this.state.servings}</button>
-                  <p className={styles.Servings}>SERVINGS</p>
-                </div>
+            <div className={styles.ShareAndSource}>
+              <div>
+                <h3 className={styles.SubTitle}>{this.state.title}</h3>
+                <p>See full recipe on : <a href={this.state.directionsUrl}>{this.state.source}</a></p>
               </div>
-            </div>
-
-            <div className={styles.IngDir}>
-              <div className={styles.Directions}>
-                <h4 >Cooking Directions</h4>
-                <p>Now that you have the Ingredients, go to <a target="_blank" rel="noopener noreferrer" href={this.state.directionsUrl} >{this.state.source}</a> to follow the cooking directions</p>
+              <div className={styles.Share}>
+                <button className={styles.ShareBtn} onClick={this.toggleSocialShareHandler}>Share</button>
+              </div>
+              <div className={styles.ShareLinks}>
+                <FacebookShare title={this.state.title} url={shareUrl} size={40} />
+                <MessengerShare title={this.state.title} url={shareUrl} size={40} />
+                <PintrestShare title={this.state.title} url={shareUrl} img={this.state.img} size={40} />
+                <TwitterShare title={this.state.title} url={shareUrl} size={40} />
+                <WhatsappShare title={this.state.title} url={shareUrl} size={40} />
               </div>
             </div>
           </div>
         </div>
+        {modal}
+        <div className={styles.FirstQuat}>
+          <div className={styles.IngDiv}>
+            {ig}
+            <div className={styles.IngH4}>
+              <div >
+                <h4>Nutrution</h4>
+                <div className={styles.Nutrition}>
+                  <div className={styles.CalData}>{(this.state.calories / this.state.servings).toFixed(2)}
+                    <p className={styles.Cal}>Calories/Serving</p>
+                  </div>
+
+                  <div >
+                    <button className={styles.Button}>{this.state.servings}</button>
+                    <p className={styles.Servings}>SERVINGS</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.IngDir}>
+                <div className={styles.Directions}>
+                  <h4 >Cooking Directions</h4>
+                  <p>Now that you have the Ingredients, go to <a target="_blank" rel="noopener noreferrer" href={this.state.directionsUrl} >{this.state.source}</a> to follow the cooking directions</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className={styles.FormEnabler}>
           <p>* If you really liked this meal, You can leave constructive feedback to help other users.</p>
           {this.state.showReview ? <button className={styles.FormEnablerHide} onClick={this.toggleReviewHandler}>Hide Review form</button> : <button className={styles.FormEnablerShow} onClick={this.toggleReviewHandler}>Review Meal</button>}
         </div>
-
         {rev}
 
       </div>

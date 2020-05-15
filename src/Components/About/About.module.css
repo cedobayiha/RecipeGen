@@ -1,15 +1,21 @@
 .About{
   Margin: 100px auto;
-  padding: 1.4rem;
-  width: 65%;
+  padding: 3rem;
+  width: 60%;
   border: #4B0082 solid 1px;
   border-radius: 10px;
+  text-align: left;
+}
+
+.Img{
+  width: 35%;
+  background-image: url('../../Assets/img/search_mobile.jpg');
 }
 
 @media screen and (max-width: 600px){
   .About{
     width: 70%;
-    height: 60vh;
+    
   }
 }
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './ReviewForm.module.css';
 import axios from 'axios';
 
 
@@ -41,13 +42,13 @@ class ReviewForm extends Component {
       disabled = false;
     }
     return (
-      <div>
-        <form action="" onSubmit={this.submitHandler}>
-          <input type="text" placeholder="Your name" onChange={this.nameChangeHandle} value={this.state.name} />
-          <input type="text" value={this.props.title} readOnly />
-          <textarea name="" id="" cols="30" rows="10" onChange={this.reviewChangeHandler} value={this.state.review}>
+      <div >
+        <form className={styles.TheForm} action="" onSubmit={this.submitHandler}>
+          <input className={styles.NameInput} type="text" placeholder="Your name..." onChange={this.nameChangeHandle} value={this.state.name} />
+          <input className={styles.TheFormTitle} type="text" value={this.props.title} readOnly />
+          <textarea className={styles.TheTextArea} name="" id="" cols="30" rows="10" onChange={this.reviewChangeHandler} value={this.state.review}>
           </textarea>
-          <button disabled={disabled}>Publish</button>
+          <button className={styles.TheFormBtn} disabled={disabled}>Publish</button>
         </form>
       </div>
     )

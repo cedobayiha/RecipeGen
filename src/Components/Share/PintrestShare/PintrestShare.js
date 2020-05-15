@@ -5,6 +5,7 @@ import {
 
 const pintrestShare = (props) => {
 
+
   return (
     <div className="Demo__some-network">
       <PinterestShareButton
@@ -12,13 +13,14 @@ const pintrestShare = (props) => {
         media={`${String(window.location)}/${props.img}`}
         className="Demo__some-network__share-button"
       >
-        <PinterestIcon size={32} round />
+        <PinterestIcon size={props.size} round />
       </PinterestShareButton>
 
-      <div>
-        <PinterestShareCount url={props.url} className="Demo__some-network__share-count" />
-      </div>
     </div>
   )
 }
 export default pintrestShare;
+
+{/* <div>
+      //   <PinterestShareCount url={props.url} className="Demo__some-network__share-count" />
+      // </div> */}

@@ -8,10 +8,10 @@ const twitterShare = (props) => {
       title={props.title}
       className="Demo__some-network__share-button"
     >
-      <TwitterIcon size={32} round />
+      <TwitterIcon size={props.size} round />
     </TwitterShareButton>
 
-    <div className="Demo__some-network__share-count">&nbsp;</div>
+    {/* <div className="Demo__some-network__share-count">&nbsp;</div> */}
   </div>)
 }
 export default twitterShare;

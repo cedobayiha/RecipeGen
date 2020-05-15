@@ -37,9 +37,9 @@ class Reviews extends Component {
 
 
     return (
-      <div style={{ marginTop: '72px' }}>
+      <div style={{ marginTop: '100px' }}>
         <form action="" className={styles.InputForm}>
-          <input type="text" onChange={this.onSearchChange} value={this.state.filter} />
+          <input className={styles.Search} type="text" placeholder="filter out reviews..." onChange={this.onSearchChange} value={this.state.filter} />
         </form>
         <div>
           {
