@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import ReviewForm from '../ReviewForm/ReviewForm';
 import styles from './FullRecipe.module.css'
-// import { lightblue } from 'color-name';
+import FacebookShare from '../Share/FacebookShare/FacebookShare';
+import MessengerShare from '../Share/MessengerShare/MessengerShare';
+import PintrestShare from '../Share/PintrestShare/PintrestShare';
+import TwitterShare from '../Share/TwitterShare/TwitterShare';
+import WhatsappShare from '../Share/WhatsappShare/WhatsappShare';
 
 class FullRecipe extends Component {
   state = {
@@ -63,6 +67,7 @@ class FullRecipe extends Component {
 
 
   render() {
+    const shareUrl = window.location.href
     let rev = null;
     let ig = null;
     let newArr = null;
@@ -75,9 +80,9 @@ class FullRecipe extends Component {
 
     if (this.state.ingredientsArray) {
       newArr = this.state.ingredientsArray;
-      console.log(newArr)
+
       newArr.map((igA, idx) => {
-        console.log(igA.length)
+
         if (igA.length > 0) {
           actualArr.push(igA)
         }
@@ -94,20 +99,32 @@ class FullRecipe extends Component {
       </div>)
     }
 
-    console.log(newArr)
-
-
 
     return (
       <div className={styles.Container}>
         <h3 className={styles.Title}>{this.state.title}</h3>
-        <div className={styles.ImageDiv}>
-          <img src={this.state.img} alt={this.state.title} />
+        <div className={styles.Main}>
+          <div className={styles.ImageDiv}>
+            <img src={this.state.img} alt={this.state.title} />
+          </div>
+
+          <div className={styles.ShareAndSource}>
+            <p>See full recipe on : <a href={this.state.directionsUrl}>{this.state.source}</a></p>
+
+            <div className={styles.Share}>
+              <FacebookShare title={this.state.title} url={shareUrl} />
+              <MessengerShare title={this.state.title} url={shareUrl} />
+              <PintrestShare title={this.state.title} url={shareUrl} img={this.state.img} />
+              <TwitterShare title={this.state.title} url={shareUrl} />
+              <WhatsappShare title={this.state.title} url={shareUrl} />
+
+              {/* {facebook} {messenger}{twitter}{whatsApp}{pintrest} */}
+            </div>
+          </div>
         </div>
 
         <div className={styles.IngDiv}>
           {ig}
-
           <div className={styles.IngH4}>
             <div >
               <h4>Nutrution</h4>
@@ -143,3 +160,4 @@ class FullRecipe extends Component {
   }
 }
 export default FullRecipe;
+

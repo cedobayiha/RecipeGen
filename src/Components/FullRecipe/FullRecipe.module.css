@@ -2,6 +2,33 @@
   margin-top: 75px;
 }
 
+.Share{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.Main{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.ShareAndSource{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ShareAndSource p{
+  text-align: left;
+}
+
+.ShareAndSource a{
+  color: black;
+  text-decoration: underline;
+}
+
 .Title{
   font-weight: 450;
   font-size: 1.5rem;
@@ -30,7 +57,7 @@
 }
 
 .ImageDiv img{
-  width:50%;
+  width:80%;
   height: 11rem;
   border: solid 3px #ccc;
   margin-left: 10px;
@@ -38,7 +65,7 @@
 
 .ImageDiv{
   display: flex;
-  width: 85%;
+  width: 55%;
   margin: 5px auto;
   padding-bottom: 10px;
 }
