@@ -179,7 +179,7 @@ class FullRecipe extends Component {
         </div>
 
         <div className={styles.FormEnabler}>
-          <p>* If you really liked this meal, You can leave constructive feedback to help other users.</p>
+          <p>Did you have a chance to make this recipe? If so, let Recipe 10 and our other users know what you thought of the dish! Your review will be published on our Inspiration page.</p>
           {this.state.showReview ? <button className={styles.FormEnablerHide} onClick={this.toggleReviewHandler}>Hide Review form</button> : <button className={styles.FormEnablerShow} onClick={this.toggleReviewHandler}>Review Meal</button>}
         </div>
         {rev}

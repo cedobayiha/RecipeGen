@@ -8,7 +8,6 @@ class ReviewForm extends Component {
     name: '',
     title: this.props.title,
     review: '',
-
   }
 
   nameChangeHandle = (e) => {
@@ -24,7 +23,8 @@ class ReviewForm extends Component {
     const submiter = {
       name: this.state.name,
       title: this.state.title,
-      review: this.state.review
+      review: this.state.review,
+      url: window.location.href
     }
 
     axios.post("https://recipes-47ca0.firebaseio.com/reviews.json", submiter)
@@ -37,6 +37,7 @@ class ReviewForm extends Component {
 
 
   render() {
+    
     let disabled = true;
     if (this.state.name.length >= 2 && this.state.review.length >= 10) {
       disabled = false;
@@ -46,7 +47,7 @@ class ReviewForm extends Component {
         <form className={styles.TheForm} action="" onSubmit={this.submitHandler}>
           <input className={styles.NameInput} type="text" placeholder="Your name..." onChange={this.nameChangeHandle} value={this.state.name} />
           <input className={styles.TheFormTitle} type="text" value={this.props.title} readOnly />
-          <textarea className={styles.TheTextArea} name="" id="" cols="30" rows="10" onChange={this.reviewChangeHandler} value={this.state.review}>
+          <textarea className={styles.TheTextArea} name="" id="" cols="30" rows="10" onChange={this.reviewChangeHandler} placeholder="Your review should be at a minimum of 10 characters to a maximum of 500 characters" value={this.state.review}>
           </textarea>
           <button className={styles.TheFormBtn} disabled={disabled}>Publish</button>
         </form>

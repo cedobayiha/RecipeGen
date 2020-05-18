@@ -5,12 +5,13 @@
   border: #4B0082 solid 1px;
   border-radius: 10px;
   text-align: left;
+  line-height: 1.4;
 }
 
-.Img{
+/* .Img{
   width: 35%;
   background-image: url('../../Assets/img/search_mobile.jpg');
-}
+} */
 
 @media screen and (max-width: 600px){
   .About{
